@@ -1,5 +1,5 @@
 {
-  "name": "vue-line-clamp",
+  "name": "vue-line-clamp-extended",
   "version": "0.0.1",
   "description": "Configurable Vue directive that does vertical line-clamp for long text",
   "main": "build/index.js",
@@ -15,14 +15,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mlison/vue-line-clamp.git"
+    "url": "git+https://github.com/mlison/vue-line-clamp-extended.git"
   },
-  "dependencies": {
-    "vue": "^2.5.16"
+  "peerDependencies": {
+    "vue": "^2.*"
   },
   "devDependencies": {},
   "bugs": {
-    "url": "https://github.com/mlison/vue-line-clamp/issues"
+    "url": "https://github.com/mlison/vue-line-clamp-extended/issues"
   },
-  "homepage": "https://github.com/mlison/vue-line-clamp#readme"
+  "homepage": "https://github.com/mlison/vue-line-clamp-extended#readme"
 }

@@ -1,1 +1,1 @@
-# vue-line-clamp
+# vue-line-clamp-extended
