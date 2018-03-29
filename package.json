@@ -20,7 +20,9 @@
   "peerDependencies": {
     "vue": "^2.*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "vue": "^2.*"
+  },
   "bugs": {
     "url": "https://github.com/mlison/vue-line-clamp-extended/issues"
   },
