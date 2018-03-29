@@ -17,7 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/mlison/vue-line-clamp.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
   "devDependencies": {},
   "bugs": {
     "url": "https://github.com/mlison/vue-line-clamp/issues"
