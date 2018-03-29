@@ -1,12 +1,20 @@
 const isFunction = (fn: any) => typeof fn === 'function'
+import { VNode, VNodeDirective } from 'vue'
 
-export interface LineClampOptions {
-  text: string
-  lines?: number
-  expanded?: any
+export interface LineClampDirectiveBinding extends VNodeDirective {
+  value: {
+    text: string
+    lines?: number
+    expanded?: any
+  }
 }
 
-const clamp = (el: HTMLElement, binding: { value: LineClampOptions }, vnode: any) => {
+const clamp = (
+  el: HTMLElement,
+  binding: LineClampDirectiveBinding,
+  vnode: VNode
+) => {
+
   if (!binding.value) {
     throw new Error('Directive options are missing')
   }
@@ -37,7 +45,10 @@ const clamp = (el: HTMLElement, binding: { value: LineClampOptions }, vnode: any
   }
 
   // notify the parent component whether the text overflows or not
-  vnode.context.$emit('is-expandable', span.offsetHeight > el.clientHeight)
+  // TODO: should this trigger event on elm instead of context?
+  if (vnode.context) {
+    vnode.context.$emit('is-expandable', span.offsetHeight > el.clientHeight)
+  }
 
   // cut out words from the end until it all fits into view
   while (span.offsetHeight > el.clientHeight) {
