@@ -50,3 +50,50 @@ Following options are supported:
 - **opts.expanded** - (optional, defaults to ```false```) boolean or a function that returns a boolean. This allows you to arbitrarily control whether you want to show the whole text or not.
 
 The directive will additionally emit an ```is-expandable``` event in the context of it's parent that tells you if the text would overflow it's container or not.
+
+# Advanced use-cases
+
+### Toggle line-clamping
+
+```vue
+<template>
+  <p @click="toggle()" v-line-clamp="{ text: someText, expanded: showMore }">
+</template>
+
+<script>
+module.exports = {
+  data: function() {
+    return {
+      showMore: false, // This can also be a function that returns a boolean
+      someText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis mauris fermentum, lacinia odio in, varius magna. Cras lobortis tortor sed eros pellentesque tempor."
+    }
+  },
+  methods: {
+    toggle() {
+      this.showMore = !this.showMore
+    }
+  }
+}
+</script>
+```
+
+### Listen to is-expandable event
+
+```vue
+<template>
+  <p v-line-clamp="{ text: someText }">
+</template>
+
+<script>
+module.exports = {
+  data: function() {
+    return {
+      someText: "text text"
+    }
+  },
+  created() {
+    this.$on('is-expandable', bool => console.log(bool ? 'text overflows' : 'text does not overflow'))
+  }
+}
+</script>
+```
